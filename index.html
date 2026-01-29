@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>License To Grill | Coffee & Grill</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ------------------ GLOBAL RESET ------------------ */
+* { 
+    box-sizing: border-box; 
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+
+    background:
+        radial-gradient(circle at top right, rgba(212,175,55,0.22), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(255,180,80,0.18), transparent 45%),
+        linear-gradient(rgba(3,3,3,0.88), rgba(0,0,0,0.95)),
+        url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1920');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ------------------ BRAND COLORS ------------------ */
+:root {
+    --gold-main: #e3b15a;
+    --gold-glow: #ffcf7a;
+    --glass-bg: rgba(15,15,15,0.65);
+}
+
+/* ------------------ HEADER ------------------ */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 42px;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(227,177,90,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 60px;
+    filter: drop-shadow(0 0 10px rgba(255,207,122,0.4));
+}
+
+.logo h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    letter-spacing: 1.2px;
+}
+
+/* ------------------ BUTTON ------------------ */
+.menu-btn {
+    background: linear-gradient(135deg, var(--gold-main), var(--gold-glow));
+    border: none;
+    padding: 12px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #111;
+    box-shadow: 0 10px 26px rgba(227,177,90,0.45);
+    transition: all 0.35s ease;
+}
+
+.menu-btn:hover {
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 0 28px rgba(255,207,122,0.9), 0 14px 32px rgba(0,0,0,0.6);
+}
+
+.menu-btn:active {
+    transform: scale(0.97);
+}
+
+/* ------------------ DROPDOWN ------------------ */
+.dropdown {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background: rgba(15,15,15,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: 240px;
+    display: none;
+    overflow: hidden;
+    border: 1px solid rgba(227,177,90,0.2);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    animation: dropdownFade 0.35s ease;
+}
+
+@keyframes dropdownFade {
+    from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dropdown a {
+    display: block;
+    padding: 14px 18px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.25s ease;
+}
+
+.dropdown a:hover {
+    background: linear-gradient(90deg, rgba(227,177,90,0.2), transparent);
+    padding-left: 26px;
+}
+
+/* ------------------ HERO ------------------ */
+.hero {
+    text-align: center;
+    padding: 160px 20px 110px;
+    animation: heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h2 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    margin-bottom: 12px;
+    text-shadow: 0 0 28px rgba(227,177,90,0.55);
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    font-size: 1.15rem;
+    opacity: 0.92;
+}
+
+/* ------------------ SECTIONS ------------------ */
+section {
+    padding: 90px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-main), transparent);
+}
+
+/* ------------------ PAGE VISIBILITY ------------------ */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ------------------ CARDS ------------------ */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+.card {
+    background: var(--glass-bg);
+    border-radius: 18px;
+    padding: 26px;
+    border: 1px solid rgba(227,177,90,0.22);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.65);
+    transition: all 0.45s cubic-bezier(.2,.8,.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,207,122,0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.8);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--gold-glow);
+}
+
+/* ------------------ GALLERY ------------------ */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(227,177,90,0.25);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.7);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.12);
+    filter: contrast(1.1) saturate(1.15);
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    background: #050505;
+    padding: 50px 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: 1px solid rgba(227,177,90,0.2);
+}
+
+/* ------------------ EMBERS ------------------ */
+.embers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ember {
+    position: absolute;
+    bottom: -20px;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: floatEmber linear infinite;
+}
+
+@keyframes floatEmber {
+    from {
+        transform: translateY(0) translateX(0) scale(0.5);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateY(-120vh) translateX(-80px) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* ------------------ MOBILE ------------------ */
+@media (max-width: 600px) {
+    header { 
+        flex-direction: column; 
+        gap: 14px; 
+        padding: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Ember Layer -->
+<div class="embers" id="embers"></div>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="License To Grill Logo">
+        <h1>License To Grill</h1>
+    </div>
+
+    <nav>
+        <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+        <div class="dropdown" id="dropdown">
+            <a href="javascript:void(0)" onclick="showPage('breakfast')">Breakfast Menu</a>
+            <a href="javascript:void(0)" onclick="showPage('main')">Main Menu</a>
+            <a href="javascript:void(0)" onclick="showPage('kids')">Kids Menu</a>
+            <a href="javascript:void(0)" onclick="showPage('gallery')">Gallery</a>
+            <a href="javascript:void(0)" onclick="showPage('contact')">Contact & Location</a>
+        </div>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>Life’s too short for bad coffee and bland food</h2>
+    <p>Premium coffee, flame-grilled favourites and family-friendly dining in Durbanville.</p>
+</div>
+
+<!-- ================= MENUS ================= -->
+
+<section id="breakfast" class="page">
+    <h2>☕ Breakfast Menu</h2>
+    <div class="card-grid">
+        <div class="card"><h3>Chicken Livers</h3><p>Tender chicken livers in mild curry sauce, ciabatta.</p><strong>R59</strong></div>
+        <div class="card"><h3>Sunshine Breakfast</h3><p>2 eggs, bacon, baked beans, pork banger or cheese griller.</p><strong>R115</strong></div>
+        <div class="card"><h3>Hearty Breakfast</h3><p>2 eggs, bacon, wors, hashbrown, mushrooms, cheddar.</p><strong>R129</strong></div>
+        <div class="card"><h3>Eggs Benedict</h3><p>Ham or Bacon <strong>R94</strong> · Smoked Trout <strong>R129</strong></p></div>
+        <div class="card"><h3>Avo on Toast</h3><strong>R75</strong></div>
+        <div class="card"><h3>French Toast</h3><p>Honey & Bacon <strong>R85</strong> · Choc-Hazelnut <strong>R95</strong></p></div>
+        <div class="card"><h3>The Plant-Based Grill</h3><p>Vegan sausage, bacon, tomato & chips.</p><strong>R125</strong></div>
+        <div class="card"><h3>The Healthy Option</h3><p>Yogurt, muesli, fruit & honey.</p><strong>R75</strong></div>
+        <div class="card"><h3>Mixed Grill Breakfast</h3><p>Eggs, bacon, wors, beef patty, rump, hashbrown.</p><strong>R225</strong></div>
+        <div class="card"><h3>The Classic Breakfast</h3><p>Eggs, bacon, tomato, chips & toast.</p><strong>R64</strong></div>
+        <div class="card"><h3>Omelette</h3><p>Three-egg omelette with cheddar.</p><strong>R65</strong></div>
+        <div class="card"><h3>Papillon Mimosa (250ml)</h3><strong>R59</strong></div>
+    </div>
+</section>
+
+<section id="main" class="page">
+    <h2>🔥 Main Menu Highlights</h2>
+    <div class="card-grid">
+        <div class="card"><h3>Starters</h3><p>Crumbed Mushrooms R75<br>Jalapeno Poppers R69<br>Springbok Carpaccio R135<br>Cheesy Garlic Snails R95</p></div>
+        <div class="card"><h3>Burgers</h3><p>The Classic R109<br>Cheese Burger R125<br>License To Grill Specialty R195<br>The Inferno R165<br>Veggie Burger R139</p></div>
+        <div class="card"><h3>Grills</h3><p>Rump 200g R159<br>Sirloin 300g R199<br>T-Bone 600g R289<br>Pork Ribs 400g R179<br>Lamb Chops R319</p></div>
+        <div class="card"><h3>Pizza</h3><p>Heartbeat R195<br>Chicken & Avo R160<br>Hawaiian R155<br>Margherita R105<br>Greek Isles R175<br>The Braai Master R135</p></div>
+        <div class="card"><h3>Signature Dishes</h3><p>Steak Alfredo Linguine R219<br>Tomahawk Steak R450<br>Ostrich Fillet Medallions R295<br>Shadow Shank R325<br>Bacon Carbonara R195</p></div>
+        <div class="card"><h3>Barista Favourites</h3><p>Americano R28 · Flat White R38 · Latte R39 · Cappuccino (Single) R36 · Hot Chocolate R38</p></div>
+    </div>
+</section>
+
+<section id="kids" class="page">
+    <h2>🍭 Kids Menu (Under 12)</h2>
+    <div class="card-grid">
+        <div class="card"><h3>Breakfast</h3><p>Bacon & Eggs with Toast R49<br>Cheese Griller & Eggs with Toast R55<br>French Toast Poppers R50</p></div>
+        <div class="card"><h3>Mains</h3><p>Riblets & Chips R75<br>Chicken Strips & Chips R69<br>Build a Pizza R79<br>Kiddies Burger & Chips R69<br>Toasted Ham & Cheese R59<br>Loaded Bacon Fries R59</p></div>
+        <div class="card"><h3>Desserts</h3><p>Oreo & Kit Kat Waffle R45<br>Ice Cream & Crushed Smarties R35<br>Waffle Bites & Maple Syrup R39</p></div>
+        <div class="card"><h3>Drinks</h3><p>Sodas R28<br>Juice R24<br>Milkshakes R30</p></div>
+    </div>
+</section>
+
+<section id="gallery" class="page">
+    <h2>📸 Gallery</h2>
+    <p>Showcase your coffee, grills, atmosphere and specials.</p>
+
+    <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/gallery.jpg"></div>
+        <div class="gallery-item"><img src="images/gallery-3.jpg"></div>
+        <div class="gallery-item"><img src="images/gallery-1.jpg"></div>
+        <div class="gallery-item"><img src="images/gallery-2.jpg"></div>
+        <div class="gallery-item"><img src="images/gallery-4.jpg"></div>
+        <div class="gallery-item"><img src="images/gallery-5.jpg"></div>
+        
+    </div>
+</section>
+
+<section id="contact" class="page">
+    <h2>📍 Contact & Location</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>Address</h3>
+            <p>Shop 35a-d<br>Klipheuwel Road & Okavango Rd<br>Durbanville, Cape Town, 5770</p>
+        </div>
+        <div class="card">
+            <h3>Contact</h3>
+            <p>☎ 021 007 2942<br>✉ gm007@davesheer.com</p>
+        </div>
+        <div class="card" style="grid-column: 1 / -1; padding: 0; overflow: hidden;">
+            <iframe
+                src="https://www.google.com/maps?q=Shop%2035a-d%20Klipheuwel%20Road%20%26%20Okavango%20Rd%20Durbanville%20Cape%20Town&output=embed"
+                width="100%"
+                height="380"
+                style="border:0;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 License To Grill</p>
+    <p>Where Coffee Meets the Flame</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('dropdown');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
+function showPage(pageId) {
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(p => p.classList.remove('active'));
+
+    const activePage = document.getElementById(pageId);
+    if (activePage) {
+        activePage.classList.add('active');
+        window.scrollTo({ top: activePage.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    document.getElementById('dropdown').style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+    const menu = document.getElementById('dropdown');
+    const button = document.querySelector('.menu-btn');
+    if (!menu.contains(e.target) && !button.contains(e.target)) {
+        menu.style.display = 'none';
+    }
+});
+
+// Ember generator
+const emberContainer = document.getElementById('embers');
+
+function createEmber() {
+    const ember = document.createElement('div');
+    ember.className = 'ember';
+    ember.style.left = Math.random() * 100 + 'vw';
+    ember.style.animationDuration = (6 + Math.random() * 6) + 's';
+    ember.style.opacity = Math.random();
+    emberContainer.appendChild(ember);
+
+    setTimeout(() => {
+        ember.remove();
+    }, 12000);
+}
+
+setInterval(createEmber, 700);
+</script>
+
+</body>
+</html>
