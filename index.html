@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -88,6 +88,35 @@ header {
 
 .menu-btn:active {
     transform: scale(0.97);
+}
+
+/* ------------------ FLAME BURST ------------------ */
+.flame-burst {
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.flame {
+    position: absolute;
+    width: 14px;
+    height: 28px;
+    background: radial-gradient(circle at 50% 80%, #ffd27a, #ff8c00 60%, transparent 70%);
+    border-radius: 50%;
+    animation: flameRise 0.6s ease-out forwards;
+}
+
+@keyframes flameRise {
+    from {
+        transform: translateY(0) scale(0.6);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-40px) scale(1.2);
+        opacity: 0;
+    }
 }
 
 /* ------------------ DROPDOWN ------------------ */
@@ -419,6 +448,24 @@ footer {
 function toggleMenu() {
     const menu = document.getElementById('dropdown');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    flameBurst();
+}
+
+function flameBurst() {
+    const btn = document.querySelector('.menu-btn');
+    const burst = document.createElement('div');
+    burst.className = 'flame-burst';
+    btn.appendChild(burst);
+
+    for (let i = 0; i < 6; i++) {
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        flame.style.left = Math.random() * 30 - 15 + 'px';
+        flame.style.animationDelay = Math.random() * 0.15 + 's';
+        burst.appendChild(flame);
+    }
+
+    setTimeout(() => burst.remove(), 700);
 }
 
 function showPage(pageId) {
@@ -463,5 +510,3 @@ setInterval(createEmber, 700);
 
 </body>
 </html>
-
-
