@@ -314,6 +314,83 @@ footer {
     }
 }
 
+/* ------------------ HERO CTA ------------------ */
+.hero-actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.cta-primary {
+    background: linear-gradient(135deg, var(--gold-main), var(--gold-glow));
+    color: #111;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(227,177,90,0.45);
+    transition: all 0.35s ease;
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.cta-secondary {
+    border: 2px solid rgba(227,177,90,0.7);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+    background: rgba(227,177,90,0.15);
+}
+
+/* ------------------ SOCIAL PROOF ------------------ */
+.social-proof {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+/* ------------------ HEADER BOOK BUTTON ------------------ */
+.header-book {
+    background: linear-gradient(135deg, var(--gold-main), var(--gold-glow));
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    margin-right: 12px;
+    box-shadow: 0 8px 22px rgba(227,177,90,0.4);
+    transition: all 0.3s ease;
+}
+
+.header-book:hover {
+    transform: scale(1.05);
+}
+/* ------------------ GOOGLE REVIEWS ------------------ */
+.reviews-section {
+    padding: 90px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.reviews-section .card {
+    border-radius: 18px;
+    border: 1px solid rgba(227,177,90,0.25);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+}
+
+
 /* ------------------ MOBILE ------------------ */
 @media (max-width: 600px) {
     header { 
@@ -321,7 +398,16 @@ footer {
         gap: 14px; 
         padding: 16px;
     }
+
+    .card:hover {
+        transform: none;
+    }
+
+    .ember {
+        display: none;
+    }
 }
+
 
 </style>
 </head>
@@ -334,12 +420,18 @@ footer {
 <header>
     <div class="logo">
         <img src="logo.png" alt="License To Grill Logo">
-        <h1>License To Grill</h1>
+        <h1>License To Grill Restaurant & Cocktail Bar</h1>
     </div>
 
     <nav>
-        <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-        <div class="dropdown" id="dropdown">
+
+        <nav>
+    <a href="https://www.dineplan.com/restaurants/license-to-grill-restaurant-and-cocktail-lounge"
+       target="_blank" class="header-book">Book Now</a>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+    <div class="dropdown" id="dropdown">
+
             <a href="javascript:void(0)" onclick="showPage('breakfast')">Breakfast Menu</a>
             <a href="javascript:void(0)" onclick="showPage('main')">Main Menu</a>
             <a href="javascript:void(0)" onclick="showPage('kids')">Kids Menu</a>
@@ -352,6 +444,18 @@ footer {
 <div class="hero">
     <h2>Life’s too short for bad coffee and bland food</h2>
     <p>Premium coffee, flame-grilled favourites and family-friendly dining in Durbanville.</p>
+
+    <!-- HERO ACTION BUTTONS -->
+    <div class="hero-actions">
+        <a href="https://www.dineplan.com/restaurants/license-to-grill-restaurant-and-cocktail-lounge"
+           target="_blank" class="cta-primary">Book a Table</a>
+        <a href="javascript:void(0)" onclick="showPage('main')" class="cta-secondary">View Menu</a>
+    </div>
+
+    <!-- SOCIAL PROOF -->
+    <div class="social-proof">
+        ⭐⭐⭐⭐⭐ Loved by Durbanville locals • Family Friendly • Premium Coffee & Grill
+    </div>
 </div>
 
 <!-- ================= MENUS ================= -->
@@ -375,24 +479,68 @@ footer {
 </section>
 
 <section id="main" class="page">
-    <h2>🔥 Main Menu Highlights</h2>
-    <div class="card-grid">
-        <div class="card"><h3>Starters</h3><p>Crumbed Mushrooms R75<br>Jalapeno Poppers R69<br>Springbok Carpaccio R135<br>Cheesy Garlic Snails R95</p></div>
-        <div class="card"><h3>Burgers</h3><p>The Classic R109<br>Cheese Burger R125<br>License To Grill Specialty R195<br>The Inferno R165<br>Veggie Burger R139</p></div>
-        <div class="card"><h3>Grills</h3><p>Rump 200g R159<br>Sirloin 300g R199<br>T-Bone 600g R289<br>Pork Ribs 400g R179<br>Lamb Chops R319</p></div>
-        <div class="card"><h3>Pizza</h3><p>Heartbeat R195<br>Chicken & Avo R160<br>Hawaiian R155<br>Margherita R105<br>Greek Isles R175<br>The Braai Master R135</p></div>
-        <div class="card"><h3>Signature Dishes</h3><p>Steak Alfredo Linguine R219<br>Tomahawk Steak R450<br>Ostrich Fillet Medallions R295<br>Shadow Shank R325<br>Bacon Carbonara R195</p></div>
-        <div class="card"><h3>Barista Favourites</h3><p>Americano R28 · Flat White R38 · Latte R39 · Cappuccino (Single) R36 · Hot Chocolate R38</p></div>
-    </div>
-</section>
+    <h2>🔥 Main Menu</h2>
+    <p style="opacity:.85;margin-bottom:30px;">
+        Available from 11:30 • A discretionary 10% service charge applies to tables of 8 or more
+    </p>
 
-<section id="kids" class="page">
-    <h2>🍭 Kids Menu (Under 12)</h2>
+    <!-- STARTERS -->
+    <h3 style="color:var(--gold-glow)">Starters</h3>
     <div class="card-grid">
-        <div class="card"><h3>Breakfast</h3><p>Bacon & Eggs with Toast R49<br>Cheese Griller & Eggs with Toast R55<br>French Toast Poppers R50</p></div>
-        <div class="card"><h3>Mains</h3><p>Riblets & Chips R75<br>Chicken Strips & Chips R69<br>Build a Pizza R79<br>Kiddies Burger & Chips R69<br>Toasted Ham & Cheese R59<br>Loaded Bacon Fries R59</p></div>
-        <div class="card"><h3>Desserts</h3><p>Oreo & Kit Kat Waffle R45<br>Ice Cream & Crushed Smarties R35<br>Waffle Bites & Maple Syrup R39</p></div>
-        <div class="card"><h3>Drinks</h3><p>Sodas R28<br>Juice R24<br>Milkshakes R30</p></div>
+        <div class="card"><h3>Crumbed Mushrooms</h3><p>Golden crumbed mushrooms with sweet dipping sauce</p><strong>R89</strong></div>
+        <div class="card"><h3>Springbok Carpaccio</h3><p>Thinly sliced springbok with light dressing</p><strong>R139</strong></div>
+        <div class="card"><h3>Jalapeño Poppers</h3><p>Crispy jalapeños stuffed with creamy cheese</p><strong>R69</strong></div>
+        <div class="card"><h3>Fried Calamari Starter</h3><p>Tender calamari with lemon butter & tartare</p><strong>R95</strong></div>
+        <div class="card"><h3>Halloumi & Beetroot Stack</h3><strong>R95</strong></div>
+        <div class="card"><h3>Cheesy Garlic Snails</h3><strong>R85</strong></div>
+        <div class="card"><h3>Mozzarella Sticks</h3><strong>R65</strong></div>
+        <div class="card"><h3>Vegetable Spring Rolls</h3><strong>R65</strong></div>
+        <div class="card"><h3>Chicken Strips & Chips</h3><strong>R89</strong></div>
+        <div class="card"><h3>Chicken Livers</h3><strong>R69</strong></div>
+    </div>
+
+    <!-- BURGERS -->
+    <h3 style="color:var(--gold-glow);margin-top:60px">Burgers</h3>
+    <div class="card-grid">
+        <div class="card"><span class="badge">🔥 Best Seller</span><h3>License To Grill Specialty</h3><p>Double bacon, cheese, sausage & secret sauce</p><strong>R195</strong></div>
+        <div class="card"><h3>The Classic</h3><p>Beef or chicken patty</p><strong>R125</strong></div>
+        <div class="card"><h3>Cheese Burger</h3><strong>R135</strong></div>
+        <div class="card"><h3>Cheese & Bacon</h3><strong>R135</strong></div>
+        <div class="card"><h3>Bacon, Cheese & Guacamole</h3><strong>R165</strong></div>
+        <div class="card"><h3>The Meltmaster</h3><strong>R145</strong></div>
+        <div class="card"><h3>Veggie Burger</h3><strong>R135</strong></div>
+        <div class="card"><h3>The Crunch Burger</h3><strong>R135</strong></div>
+        <div class="card"><h3>The Inferno</h3><strong>R185</strong></div>
+        <div class="card"><h3>The Naked Burger</h3><strong>R205</strong></div>
+    </div>
+
+    <!-- GRILLS -->
+    <h3 style="color:var(--gold-glow);margin-top:60px">Grills</h3>
+    <div class="card-grid">
+        <div class="card"><h3>Rump 200g</h3><strong>R165</strong></div>
+        <div class="card"><h3>Rump 300g</h3><strong>R209</strong></div>
+        <div class="card"><h3>Sirloin 200g</h3><strong>R165</strong></div>
+        <div class="card"><h3>Sirloin 300g</h3><strong>R209</strong></div>
+        <div class="card"><h3>T-Bone 600g</h3><strong>R269</strong></div>
+        <div class="card"><h3>Fillet 300g</h3><strong>R309</strong></div>
+        <div class="card"><h3>Pork Ribs 400g</h3><strong>R205</strong></div>
+        <div class="card"><h3>Pork Ribs 600g</h3><strong>R285</strong></div>
+        <div class="card"><h3>Lamb Chops</h3><strong>R275</strong></div>
+    </div>
+
+    <!-- PIZZA -->
+    <h3 style="color:var(--gold-glow);margin-top:60px">Pizza</h3>
+    <div class="card-grid">
+        <div class="card"><h3>Heartbeat</h3><strong>R240</strong></div>
+        <div class="card"><h3>Chicken & Avo</h3><strong>R155</strong></div>
+        <div class="card"><h3>Hawaiian</h3><strong>R125</strong></div>
+        <div class="card"><h3>Margherita</h3><strong>R95</strong></div>
+        <div class="card"><h3>Greek Isles</h3><strong>R175</strong></div>
+        <div class="card"><h3>The Braai Master</h3><strong>R145</strong></div>
+        <div class="card"><h3>Undercover Pizza</h3><strong>R135</strong></div>
+        <div class="card"><h3>3 Cheese Pizza</h3><strong>R85</strong></div>
+        <div class="card"><h3>The Fire House Deluxe</h3><strong>R125</strong></div>
+        <div class="card"><h3>Feta Fresca</h3><strong>R75</strong></div>
     </div>
 </section>
 
@@ -410,32 +558,65 @@ footer {
     </div>
 </section>
 
-<section id="contact" class="page">
+<section id="contact" class="page active">
     <h2>📍 Contact & Location</h2>
+
     <div class="card-grid">
+
         <div class="card">
             <h3>Address</h3>
-            <p>Shop 35a-d<br>Klipheuwel Road & Okavango Rd<br>Durbanville, Cape Town, 5770</p>
+            <p>
+                Shop 35a–d<br>
+                Klipheuwel Road & Okavango Rd<br>
+                Durbanville, Cape Town
+            </p>
         </div>
+
         <div class="card">
             <h3>Contact</h3>
-            <p>☎ 021 007 2942<br>✉ gm007@davesheer.com</p>
+            <p>
+                ☎ 021 007 2942<br>
+                ✉ gm007@davesheer.com
+            </p>
         </div>
-        <div class="card" style="grid-column: 1 / -1; padding: 0; overflow: hidden;">
+
+        <div class="card">
+            <h3>Opening Hours</h3>
+            <p>
+                ⏰ Monday – Sunday<br>
+                08:30 – Late
+            </p>
+            <p style="opacity:.8">
+                Breakfast • Lunch • Dinner
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Good to Know</h3>
+            <p>
+                🚗 Secure Parking Available<br>
+                👨‍👩‍👧 Family Friendly<br>
+                🍸 Cocktail Bar<br>
+                ☕ Barista Coffee
+            </p>
+        </div>
+
+        <!-- MAP -->
+        <div class="card" style="grid-column:1/-1;padding:0;overflow:hidden;">
             <iframe
                 src="https://www.google.com/maps?q=Shop%2035a-d%20Klipheuwel%20Road%20%26%20Okavango%20Rd%20Durbanville%20Cape%20Town&output=embed"
                 width="100%"
-                height="380"
-                style="border:0;"
+                height="420"
+                style="border:0"
                 loading="lazy">
             </iframe>
         </div>
+
     </div>
 </section>
-    <a href="https://www.dineplan.com/restaurants/license-to-grill-restaurant-and-cocktail-lounge"
-   target="_blank" style="background:#e3b15a; color:#111; padding:12px 22px; border-radius:8px; font-weight:600; text-decoration:none;">
-   Book a Table
-</a>
+  
+<section class="reviews-section">
+  </section>
 
 
 <footer>
@@ -509,5 +690,3 @@ setInterval(createEmber, 700);
 
 </body>
 </html>
-
-
